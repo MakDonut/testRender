@@ -19,7 +19,7 @@
                     </p>
                     <p class="card-text"><small class="text-muted">Category: {{ item.category }}</small></p>
                     <p class="card-text">{{ item.description|truncatewords:15 }}</p>
-                    <p class="card-text"><small class="text-muted">Created: {{ item.created_at }}</small></p>
+                    <p class="card-text"><small class="text-muted">Created: {{ item.created_at }} ,</small> <small style="font-weight: bold; font-size: 0.85rem;"> {{item.user}} </small></p> 
                     
                 </div>
             </div>

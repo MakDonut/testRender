@@ -1,0 +1,36 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container mt-4">
+        <hr>    
+        <h2 class="text-center mb-4">Your Watchlist</h2>
+
+        {% if watchlist %}
+            <div class="row">
+                {% for watch in watchlist %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ watch.item.listing.image_url }}" class="card-img-top" style="max-height: 150px; object-fit: cover;" alt="{{ watch.item.listing.title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{% url 'list_detail' watch.item.listing.id %}">{{ watch.item.listing.title }}</a>
+                                </h5>
+                                <p class="card-text">Current Price: ${{ watch.current_price }}</p>
+                                <form method="POST" action="{% url 'toggle_watchlist' watch.item.listing.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-warning">Remove from Watchlist</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Your Watchlist is empty.</p>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Your watchlist is empty...</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

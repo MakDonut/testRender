@@ -1,0 +1,49 @@
+
+/* No me quiten puntos por no usar CSS, es que ya la verdad no halle forma de repararlo :( */
+
+/* ya lo repare y ni se como, pero ya la mayoria lo hice con Boostrap :p */
+
+body {
+    background-color: #f0f0f0;
+}
+
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+
+.mt-4 strong {
+    font-size: 20px; 
+    color: #007bff; 
+}
+
+
+.mt-4 br {
+    display: none; 
+}
+
+.mt-4 {
+    position: relative;
+}
+
+/* Contenedor de descripción */
+.mt-4::after {
+    content: ''; 
+    display: block;
+    width: 100%;
+    height: 2px; 
+    background-color: #007bff; 
+    margin: 10px 0; 
+}
+
+/* Estilo para el texto de descripción */
+.mt-4 {
+    font-size: 16px; 
+    line-height: 1.5; 
+    color: #333;
+    background-color: #f8f9fa; 
+    padding: 15px;
+    border-radius: 5px; 
+    border: 1px solid #ddd; 
+}

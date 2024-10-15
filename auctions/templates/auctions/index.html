@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<hr>
+<h2 class="text-center" style="margin-bottom: 30px; font-weight: 600;">Active Listings</h2>
+
+<div class="row justify-content-center">
+    {% for item in listings %}
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+            <div class="card" style="width: 100%;">
+                <img class="card-img-top" src="{{ item.image_url }}" alt="{{ item.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'list_detail' item.id %}">{{ item.title }}</a>
+                    </h5>
+                    <p class="card-text">
+                        <small class="text-muted">Currently: </small>
+                        <span style="font-weight: bold; font-size: 1.25rem;">${{ item.starting_bid }}</span>
+                    </p>
+                    <p class="card-text"><small class="text-muted">Category: {{ item.category }}</small></p>
+                    <p class="card-text">{{ item.description|truncatewords:15 }}</p>
+                    <p class="card-text"><small class="text-muted">Created: {{ item.created_at }}</small></p>
+                    
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <li>No items available.</li>
+    {% endfor %}
+</div>
+{% endblock %}

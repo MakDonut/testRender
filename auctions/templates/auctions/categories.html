@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <hr>
+    <h2 class="text-center mb-4">Shop by Category</h2>
+    <div class="container">
+        <div class="row">
+            {% for cat in categories %}
+            <div class="col-md-6 mb-4">
+                <div class="media border p-3 align-items-center" style="height: 120px;"> 
+                    <img src="{{ cat.image_url }}" class="mr-3" alt="{{ cat.name }} Icon" style="width: 100px; height: 100px; object-fit: cover;">  <!-- Aumentar tamaño y mantener proporciones -->
+                    <div class="media-body text-center">
+                        <h5 class="mt-0" style="font-weight: bold; font-size: 1.5rem; color: black;">
+                            <a href="{% url 'category_listings' cat.id %}" style="color: black; text-decoration: none;">{{ cat.name }}</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
